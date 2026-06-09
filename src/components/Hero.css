@@ -10,7 +10,38 @@
   overflow: hidden;
 }
 
-/* Glow blobs */
+/* ── Python background image ── */
+.hero__bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Desaturate slightly so it doesn't compete with text */
+  filter: saturate(0.8) brightness(0.55);
+}
+
+/* Multi-layer gradient: dark edges + radial vignette on the left where text sits */
+.hero__bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    /* strong left-side fade so headline is always readable */
+    linear-gradient(to right, #0B0E14 0%, #0B0E14 10%, rgba(11,14,20,0.75) 45%, rgba(11,14,20,0.0) 70%),
+    /* top & bottom fade to blend into page */
+    linear-gradient(to bottom, #0B0E14 0%, transparent 18%, transparent 78%, #0B0E14 100%),
+    /* overall dark vignette */
+    radial-gradient(ellipse 110% 90% at 50% 50%, transparent 40%, rgba(11,14,20,0.65) 100%);
+}
+
+/* Glow blobs sit on top of image */
 .hero::before,
 .hero::after {
   content: '';
@@ -18,21 +49,21 @@
   border-radius: 50%;
   filter: blur(72px);
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 .hero::before {
   width: 560px;
   height: 560px;
   top: -80px;
-  right: -120px;
-  background: radial-gradient(circle, rgba(74, 144, 217, 0.14), transparent 70%);
+  left: -80px;
+  background: radial-gradient(circle, rgba(74, 144, 217, 0.12), transparent 70%);
 }
 .hero::after {
   width: 400px;
   height: 400px;
   bottom: 0;
   left: -100px;
-  background: radial-gradient(circle, rgba(255, 212, 59, 0.07), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 212, 59, 0.06), transparent 70%);
 }
 
 .hero__inner {

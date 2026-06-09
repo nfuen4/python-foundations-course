@@ -5,7 +5,17 @@ import './Hero.css';
 
 const Hero = () => (
   <section className="hero">
-    <div className="container hero__inner">
+    {/* Background python image with gradient overlay */}
+    <div className="hero__bg-image">
+      <img
+        src="./python_bg.png"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+      />
+    </div>
+
+    <div className="container hero__inner" style={{ position: 'relative', zIndex: 2 }}>
       <motion.span
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -76,6 +86,7 @@ const Hero = () => (
       animate={{ opacity: 1 }}
       transition={{ delay: 1.2 }}
       className="hero__scroll-cue"
+      style={{ position: 'relative', zIndex: 2 }}
     >
       <ArrowDown size={20} className="bounce" />
     </motion.a>
