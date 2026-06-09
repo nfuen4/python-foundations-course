@@ -50,7 +50,7 @@
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   cursor: pointer;
   transition: var(--transition-smooth);
 }
