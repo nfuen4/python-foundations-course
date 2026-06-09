@@ -1,0 +1,69 @@
+.alternate-bg {
+  background-color: rgba(26, 34, 53, 0.4);
+  border-top: 1px solid var(--surface-border);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-content {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Base styles for children inside sections */
+.grid-2-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--accent-python-yellow);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card p {
+  color: var(--text-secondary);
+}
+
+.card ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.card li {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-python-blue);
+}
