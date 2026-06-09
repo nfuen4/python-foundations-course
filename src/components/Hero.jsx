@@ -1,69 +1,85 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Code, ArrowDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import './Hero.css';
 
-const Hero = () => {
-  return (
-    <section className="hero-container section">
-      <div className="container">
-        <div className="hero-content">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="hero-badge"
-          >
-            <Terminal size={16} />
-            <span>Foundations Series</span>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="hero-title"
-          >
-            Python Foundations <br />
-            <span className="text-gradient">Course Plan</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="hero-subtitle subtitle"
-          >
-            A comprehensive, adaptive methodology for mastering Python from the ground up.
-            Built for modern engineering teams.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="hero-actions"
-          >
-            <a href="#methodology" className="btn btn-primary">
-              <Code size={18} />
-              Explore Syllabus
-            </a>
-          </motion.div>
-        </div>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="scroll-indicator"
-        >
-          <a href="#methodology">
-            <ArrowDown size={24} className="bounce" />
-          </a>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+const Hero = () => (
+  <section className="hero">
+    <div className="container hero__inner">
+      <motion.span
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="hero__eyebrow"
+      >
+        🐍 Python Foundations
+      </motion.span>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="hero__headline"
+      >
+        14-Day Learning<br />
+        <span className="text-gradient">Max Sprint</span>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="hero__sub"
+      >
+        A structured, project-managed approach to mastering Python Foundations —
+        built for the Product Analytics pivot.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="hero__cta-row"
+      >
+        <a href="#charter" className="hero__btn hero__btn--primary">
+          View the Charter
+        </a>
+        <a href="#scope" className="hero__btn hero__btn--ghost">
+          Explore Scope
+        </a>
+      </motion.div>
+
+      {/* Stats strip */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="hero__stats"
+      >
+        {[
+          { value: '14',  label: 'Day Sprint'         },
+          { value: '7',   label: 'Core Concepts'      },
+          { value: '1.5h', label: 'Daily Focus Block' },
+          { value: 'L3',  label: "Bloom's Application" },
+        ].map(({ value, label }) => (
+          <div key={label} className="hero__stat">
+            <span className="hero__stat-value">{value}</span>
+            <span className="hero__stat-label">{label}</span>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+
+    <motion.a
+      href="#charter"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.2 }}
+      className="hero__scroll-cue"
+    >
+      <ArrowDown size={20} className="bounce" />
+    </motion.a>
+  </section>
+);
 
 export default Hero;
